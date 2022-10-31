@@ -1,9 +1,15 @@
+import { borrarUsuario } from './usuarios.js';
+
+/*EVENTOS CLICK-------------------------------------------------------------*/
 $('#cerrar-sesion').click((e) => cerrarSesion(e));
 
-function obtenerTablas(){
-    const tablas = JSON.parse(localStorage.getItem('tablas'));
-    console.log(tablas)
+$('body').on('click', '.borrar', (e) => {
+    borrarUsuario(e)
+});
 
+/*FUNCTIONES UTILIZADAS------------------------------------------------------*/
+function renderizarTablas(){
+    const tablas = JSON.parse(localStorage.getItem('tablas'));
     let admin = tablas.administrador;
     let tablaUsuarios = tablas.tablaUsuarios;
     let tablaAdmins = tablas.tablaAdmin;
@@ -114,4 +120,4 @@ function cerrarSesion(e){
     window.location.href = 'iniciar-sesion.html';
 }
 
-obtenerTablas();
+renderizarTablas();

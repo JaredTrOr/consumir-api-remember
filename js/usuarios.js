@@ -110,11 +110,10 @@ function insertarUsuarioAdministrador(){
 function borrarUsuario(e){
     e.preventDefault();
     let id = e.target.parentElement.parentElement.firstElementChild.innerHTML;
-    console.log(id)
     $.ajax({
-        url:'http://localhost:3000/api/delete-contact/'+id,
+        url:'http://localhost:3000/usuarioAPI/borrar-usuario-administrador/?id='+id,
         type:'GET',
-        success:(register) => {
+        success:() => {
             informacionAdministrador();
             redireccionar('administrador.html');
         }
@@ -139,12 +138,12 @@ function redireccionar(direccion){
     },10);
 }
 
-//EVENTOS CLICK-------------------------------------------------------
-$('.borrar').click((e) => {
-    borrarUsuario(e);
-});
-
 //FUNCTIONES EXPORTADAS-------------------------------------------------
-export {registrarUsuario, iniciarSesion, insertarUsuarioAdministrador}
+export {
+    registrarUsuario, 
+    iniciarSesion, 
+    insertarUsuarioAdministrador, //Exporta a validacion-insertar.js
+    borrarUsuario, //Exporta a administrador.js
+}
 
 
