@@ -4,7 +4,7 @@ const botonFormulario = document.getElementById('iniciar');
 const spanUsuario = document.getElementById('span-usuario');
 const spanPassword = document.getElementById('span-password');
 const inputs = document.querySelectorAll('input');
-let mensaje = document.querySelector('.advertencia');
+let mensaje = document.querySelector('.advertencia'); //Quitar mensaje con los inputs
 let contador = 0;
 
 botonFormulario.addEventListener('click', (e) => {
