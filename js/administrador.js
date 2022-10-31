@@ -1,4 +1,5 @@
-import { borrarUsuario, bajaUsuario, restaurarUsuario } from './usuarios.js';
+import { borrarUsuario, bajaUsuario, restaurarUsuario, infoEditarUsuario } 
+from './usuarios.js';
 
 /*EVENTOS CLICK-------------------------------------------------------------*/
 $('#cerrar-sesion').click((e) => cerrarSesion(e));
@@ -8,6 +9,10 @@ $('body').on('click', '.borrar', (e) => borrarUsuario(e));
 $('body').on('click', '.baja', (e) => bajaUsuario(e));
 
 $('body').on('click', '.restaurar', (e) => restaurarUsuario(e));
+
+$('body').on('click', '.restaurar', (e) => restaurarUsuario(e));
+
+$('body').on('click', '.editar', (e) => infoEditarUsuario(e));
 
 /*FUNCTIONES UTILIZADAS------------------------------------------------------*/
 function renderizarTablas(){

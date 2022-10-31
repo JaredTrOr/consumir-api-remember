@@ -148,7 +148,41 @@ function restaurarUsuario(e){
     });
 }
 
-//FUNCIONES APARTE------------------------------------------------------
+//OBTENER INFORMACIÓN DE USUARIO PARA EDITAR
+function infoEditarUsuario(e){
+    e.preventDefault();
+    let id = obtenerId(e);
+    $.ajax({
+        url: 'http://localhost:3000/usuarioAPI/info-editar-usuario/'+id,
+        type: 'GET',
+        success: (data) => {
+            enviarInformacionUsuario(data);
+            redireccionar('../admin/editar.html');
+        }
+    });
+}
+
+//EDITAR USUARIO
+function editarUsuario(){
+    $.ajax({
+        url: 'http://localhost:3000/usuarioAPI/editar-usuario-administrador',
+        type: 'POST',
+        data: {
+            id: $('#id-editar').val(),
+            nombre: $('#nombre-editar').val(),
+            usuario: $('#usuario-editar').val(),
+            email: $('#email-editar').val(),
+            password: $('#password-registro').val(),
+            rol: $('input[name="rol"]:checked').val()
+        },
+        success: () => {
+            informacionAdministrador();
+            redireccionar('../administrador.html')
+        }
+    });
+}
+
+//FUNCIONES LOCALES------------------------------------------------------
 
 function mensajeAdvertencia(mensaje){
     $('.advertencia').html(mensaje);
@@ -163,11 +197,15 @@ function agregarLocalStorage(objeto){
 function redireccionar(direccion){
     setTimeout(() => {
         window.location.href = direccion;
-    },10);
+    },20);
 }
 
 function obtenerId(e){
     return e.target.parentElement.parentElement.firstElementChild.innerHTML;
+}
+
+function enviarInformacionUsuario(objeto){
+    localStorage.setItem('usuario', JSON.stringify(objeto));
 }
 
 //FUNCTIONES EXPORTADAS-------------------------------------------------
@@ -177,7 +215,10 @@ export {
     insertarUsuarioAdministrador, //Exporta a validacion-insertar.js
     borrarUsuario, //Exporta a administrador.js
     bajaUsuario, //Exporta a administrador.js
-    restaurarUsuario //Exporta a administrador.js
+    restaurarUsuario, //Exporta a administrador.js
+    redireccionar,
+    infoEditarUsuario,
+    editarUsuario
 }
 
 
