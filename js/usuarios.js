@@ -109,9 +109,37 @@ function insertarUsuarioAdministrador(){
 //BORRAR USUARIO 
 function borrarUsuario(e){
     e.preventDefault();
-    let id = e.target.parentElement.parentElement.firstElementChild.innerHTML;
+    let id = obtenerId(e);
     $.ajax({
         url:'http://localhost:3000/usuarioAPI/borrar-usuario-administrador/?id='+id,
+        type:'GET',
+        success:() => {
+            informacionAdministrador();
+            redireccionar('administrador.html');
+        }
+    });
+}
+
+//BAJA USUARIO
+function bajaUsuario(e){
+    e.preventDefault();
+    let id = obtenerId(e);
+    $.ajax({
+        url:'http://localhost:3000/usuarioAPI/baja-usuario-administrador/?id='+id,
+        type:'GET',
+        success:() => {
+            informacionAdministrador();
+            redireccionar('administrador.html');
+        }
+    });
+}
+
+//RESTAURAR USUARIO
+function restaurarUsuario(e){
+    e.preventDefault();
+    let id = obtenerId(e);
+    $.ajax({
+        url:'http://localhost:3000/usuarioAPI/restaurar-usuario-administrador/?id='+id,
         type:'GET',
         success:() => {
             informacionAdministrador();
@@ -138,12 +166,18 @@ function redireccionar(direccion){
     },10);
 }
 
+function obtenerId(e){
+    return e.target.parentElement.parentElement.firstElementChild.innerHTML;
+}
+
 //FUNCTIONES EXPORTADAS-------------------------------------------------
 export {
     registrarUsuario, 
     iniciarSesion, 
     insertarUsuarioAdministrador, //Exporta a validacion-insertar.js
     borrarUsuario, //Exporta a administrador.js
+    bajaUsuario, //Exporta a administrador.js
+    restaurarUsuario //Exporta a administrador.js
 }
 
 
