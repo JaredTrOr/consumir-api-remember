@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iniciar sesión - API</title>
+        <link rel="stylesheet" href="styles/estilos.css">
+        <link rel="stylesheet" href="styles/formularios.css">
+        <link rel="stylesheet" href="styles/validacion.css">
+
+        <!--JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form class="form-registro" action="">
+            <div class="header-registro">
+
+            </div>
+
+            <div class="contenido-registro">
+                <div class="caja-input caja-mensaje-registro">
+                    <div class="mensaje-registro">Iniciar sesión</div>
+                </div>
+
+                <div class="contenido-registro-input">
+                    <div id="mensaje" class="advertencia"></div>
+                    <div class="caja-input">
+                        <div class="mensaje-input">Usuario</div>
+                        <input type="text" id="usuario-inicio" class="input-datos">
+                        <span id="span-usuario" class="noVisible">Ingrese su usuario</span>
+                    </div>
+    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Contraseña</div>
+                        <input type="password" id="password-inicio" class="input-datos">
+                        <span id="span-password" class="noVisible">Ingrese su contraseña</span>
+                    </div>
+    
+                    <div class="caja-input">
+                        <button class="boton-registro" id="iniciar" type="button">Iniciar sesión</button>
+                    </div>
+
+                    <div class="caja-input">
+                        <p>
+                            ¿No tienes cuenta?
+                            <a href="registro.html" class="link">Regístrate</a>
+                        </p>
+                    </div>
+
+                </div>
+                
+            </div>
+        </form>
+
+        <script type="module" src="js/validacion-iniciar.js"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+.form-registro{
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    max-width: 550px;
+    margin: 2rem auto;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.mensaje-registro{
+    font-weight: 550;
+    font-size: 1.7rem;
+}
+
+.caja-input{
+    margin: 3rem 0;
+}
+
+.contenido-registro-input{
+    margin-top: 2.5rem;
+}
+
+.input-datos{
+    border-radius: 3px;
+    margin-top: 5px;
+    width: 100%;
+    padding: 15px;
+    height: 2rem;
+    border: 2px solid #dddddd;
+    transition: border-color 0.5s;
+}
+
+.input-datos:focus{
+    outline: none;
+    border-color: rgb(251, 88, 88);
+}
+
+.boton-registro{
+    border-radius: 5px;
+    background-color: rgb(251, 88, 88);
+    color: white;
+    cursor: pointer;
+    border: none;   
+    padding: 0.7rem;
+    width: 100%;
+}
+
+.link{
+    color: rgb(251, 88, 88);
+}

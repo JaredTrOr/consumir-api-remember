@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Añadir Usuario - API</title>
+        <link rel="stylesheet" href="../styles/estilos.css">
+        <link rel="stylesheet" href="../styles/formularios.css">
+        <link rel="stylesheet" href="../styles/validacion.css">
+
+        <!--JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form class="form-registro" action="">
+            <div class="header-registro">
+
+            </div>
+            <div class="contenido-registro">
+                <div class="caja-input caja-mensaje-registro">
+                    <div class="mensaje-registro">Añadir usuario</div>
+                </div>
+
+                <div class="contenido-registro-input">
+                    <div id="mensaje" class="advertencia"></div>
+                    <div class="caja-input">
+                        <div class="mensaje-input">Nombre</div>
+                        <input type="text" id="nombre-registro" class="input-datos">
+                        <span id="span-nombre" class="noVisible">Ingrese su nombre</span>
+                    </div>
+                    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Usuario</div>
+                        <input type="text" id="usuario-registro" class="input-datos">
+                        <span id="span-usuario" class="noVisible">Ingrese su usuario</span>
+                    </div>
+    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Email</div>
+                        <input type="email" id="email-registro" class="input-datos">
+                        <span id="span-email" class="noVisible">Ingrese su email</span>
+                    </div>
+    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Contraseña</div>
+                        <input type="text" id="password-registro" class="input-datos">
+                        <span id="span-password" class="noVisible">Ingrese su contraseña</span>
+                    </div>
+
+                    <div class="caja-input">
+                        <input type="radio" name="rol" id="User" checked="true" value="2">
+                        <label for="User">Usuario</label>
+                        <input type="radio" name="rol" id="Admin" value="1">
+                        <label for="Admin">Administrador</label>
+                    </div>
+    
+                    <div class="caja-input">
+                        <button class="boton-registro" id="registro" type="button">Añadir</button>
+                    </div>
+
+                    <div class="caja-input">
+                        <p>
+                            Regresar
+                            <a href="../administrador.html" class="link">Administrador</a>
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+
+        <script type="module" src="../js/validacion-insertar.js"></script>
+        <!-- <script src="js/validacion-registro.js"></script> -->
+    </body>
+</html>
