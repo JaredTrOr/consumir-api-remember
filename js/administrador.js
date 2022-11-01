@@ -1,4 +1,4 @@
-import { borrarUsuario, bajaUsuario, restaurarUsuario, infoEditarUsuario } 
+import { borrarUsuario, bajaUsuario, restaurarUsuario, infoEditarUsuario, infoEditarAdministrador } 
 from './usuarios.js';
 
 /*EVENTOS CLICK-------------------------------------------------------------*/
@@ -14,6 +14,8 @@ $('body').on('click', '.restaurar', (e) => restaurarUsuario(e));
 
 $('body').on('click', '.editar', (e) => infoEditarUsuario(e));
 
+$('body').on('click', '#admin', (e) => infoEditarAdministrador(e));
+
 /*FUNCTIONES UTILIZADAS------------------------------------------------------*/
 function renderizarTablas(){
     const tablas = JSON.parse(localStorage.getItem('tablas'));
@@ -22,6 +24,7 @@ function renderizarTablas(){
     let tablaAdmins = tablas.tablaAdmin;
     let tablaBajas = tablas.tablaBajas;
 
+    $('#admin').html(admin.nombre);
     //RENDERIZANDO USUARIOS
     let columnasUsuarios = '';
     tablaUsuarios.forEach(tablaUsuario => {
@@ -117,8 +120,6 @@ function renderizarTablas(){
         `;
     });
     $('#columnas-bajas').html(columnasBaja);
-
-    $('#admin').html(admin.nombre);
 }
 
 function cerrarSesion(e){

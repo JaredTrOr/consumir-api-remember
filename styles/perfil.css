@@ -1,0 +1,16 @@
+.botones{
+    display: flex;
+    gap: 1rem;
+}
+
+#editar{
+    background-color: #009dec;
+}
+
+#baja{
+    background-color: #F97900;
+}
+
+#eliminar{
+    background-color: #dc3545;
+}

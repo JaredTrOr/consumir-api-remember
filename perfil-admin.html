@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ver perfil</title>
+        <link rel="stylesheet" href="styles/estilos.css">
+        <link rel="stylesheet" href="styles/formularios.css">
+        <link rel="stylesheet" href="styles/validacion.css">
+        <link rel="stylesheet" href="styles/perfil.css">
+
+        <!--JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form class="form-registro" action="">
+            <div class="header-registro">
+
+            </div>
+            <div class="contenido-registro">
+                <div class="caja-input caja-mensaje-registro">
+                    <div class="mensaje-registro">Perfil</div>
+                </div>
+
+                <div class="contenido-registro-input">
+                    <div id="mensaje" class="advertencia"></div>
+                    <div class="caja-input">
+                        <div class="mensaje-input">Nombre</div>
+                        <input type="text" id="id-perfil" hidden> 
+                        <input type="text" id="nombre-perfil" class="input-datos">
+                        <span id="span-nombre" class="noVisible">Ingrese su nombre</span>
+                    </div>
+                    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Usuario</div>
+                        <input type="text" id="usuario-perfil" class="input-datos">
+                        <span id="span-usuario" class="noVisible">Ingrese su usuario</span>
+                    </div>
+    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Email</div>
+                        <input type="email" id="email-perfil" class="input-datos">
+                        <span id="span-email" class="noVisible">Ingrese su email</span>
+                    </div>
+    
+                    <div class="caja-input">
+                        <div class="mensaje-input">Contraseña</div>
+                        <input type="text" id="password-perfil" class="input-datos">
+                        <span id="span-password" class="noVisible">Ingrese su contraseña</span>
+                    </div>
+    
+                    <div class="caja-input botones">
+                        <button class="boton-registro" id="editar" type="button">Editar perfil</button>
+                        <button class="boton-registro" id="baja" type="button">Darse de baja</button>
+                        <button class="boton-registro" id="eliminar" type="button">Eliminar perfil</button>
+                    </div>
+
+                    <div class="caja-input">
+                        <p>
+                            Regresar
+                            <a href="../administrador.html" class="link" id="regresar">Administrador</a>
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+
+        <script type="module" src="js/perfil-admin.js"></script>
+    </body>
+</html>

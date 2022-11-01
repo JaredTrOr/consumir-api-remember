@@ -162,6 +162,21 @@ function infoEditarUsuario(e){
     });
 }
 
+//OBTENER INFORMACIÓN DEL ADMINISTRADOR PARA EDITAR
+function infoEditarAdministrador(e){
+    e.preventDefault();
+    let tablas = JSON.parse(localStorage.getItem('tablas'));
+    let id = tablas.administrador.id;
+    $.ajax({
+        url: 'http://localhost:3000/usuarioAPI/info-editar-usuario/'+id,
+        type: 'GET',
+        success: (data) => {
+            enviarInformacionAdmin(data);
+            redireccionar('../perfil-admin.html');
+        }
+    });
+}
+
 //EDITAR USUARIO
 function editarUsuario(){
     $.ajax({
@@ -176,8 +191,28 @@ function editarUsuario(){
             rol: $('input[name="rol"]:checked').val()
         },
         success: () => {
+            localStorage.removeItem('tablas');
             informacionAdministrador();
             redireccionar('../administrador.html')
+        }
+    });
+}
+
+//EDITAR PERFIL DE ADMINISTRADOR
+function editarPerfil(){
+    $.ajax({
+        url: 'http://localhost:3000/usuarioAPI/editar-usuario-administrador',
+        type: 'POST',
+        data: {
+            id: $('#id-perfil').val(),
+            nombre: $('#nombre-perfil').val(),
+            usuario: $('#usuario-perfil').val(),
+            email: $('#email-perfil').val(),
+            password: $('#password-perfil').val()
+        },
+        success: () => {
+            localStorage.removeItem('tablas');
+            informacionAdministrador();
         }
     });
 }
@@ -208,6 +243,9 @@ function enviarInformacionUsuario(objeto){
     localStorage.setItem('usuario', JSON.stringify(objeto));
 }
 
+function enviarInformacionAdmin(objeto){
+    localStorage.setItem('administrador', JSON.stringify(objeto));
+}
 //FUNCTIONES EXPORTADAS-------------------------------------------------
 export {
     registrarUsuario, 
@@ -218,7 +256,9 @@ export {
     restaurarUsuario, //Exporta a administrador.js
     redireccionar,
     infoEditarUsuario,
-    editarUsuario
+    editarUsuario,
+    infoEditarAdministrador,
+    editarPerfil
 }
 
 

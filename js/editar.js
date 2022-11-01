@@ -6,7 +6,10 @@ $('#regresar').click((e) => {
     redireccionar('../administrador.html');
 });
 
-$('#editar').click(() => editarUsuario() );
+$('#editar').click(() => {
+    localStorage.removeItem('usuario');
+    editarUsuario();
+});
 
 function desplegarInformacion(){
     let usuario = JSON.parse(localStorage.getItem('usuario'));
