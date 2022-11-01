@@ -217,6 +217,30 @@ function editarPerfil(){
     });
 }
 
+//BAJA PERFIL
+function bajaPerfil(e, id){
+    e.preventDefault();
+    $.ajax({
+        url:'http://localhost:3000/usuarioAPI/baja-usuario-administrador/?id='+id,
+        type:'GET',
+        success:() => {
+            redireccionar('iniciar-sesion.html');
+        }
+    });
+}
+
+//BORRAR PERFIL
+function borrarPerfil(e,id){
+    e.preventDefault();
+    $.ajax({
+        url:'http://localhost:3000/usuarioAPI/borrar-usuario-administrador/?id='+id,
+        type:'GET',
+        success:() => {
+            redireccionar('iniciar-sesion.html');
+        }
+    });
+}
+
 //FUNCIONES LOCALES------------------------------------------------------
 
 function mensajeAdvertencia(mensaje){
@@ -258,7 +282,9 @@ export {
     infoEditarUsuario,
     editarUsuario,
     infoEditarAdministrador,
-    editarPerfil
+    editarPerfil,
+    bajaPerfil,
+    borrarPerfil
 }
 
 

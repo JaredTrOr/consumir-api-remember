@@ -1,4 +1,4 @@
-import {redireccionar, editarPerfil} from './usuarios.js';
+import {redireccionar, editarPerfil, bajaPerfil, borrarPerfil} from './usuarios.js';
 
 $('body').on('click', '#regresar', (e) => {
     e.preventDefault();
@@ -12,7 +12,13 @@ $('body').on('click', '#editar', (e) => {
 });
 
 $('body').on('click', '#baja', (e) => {
-    editarPerfil(e);
+    let id = $('#id-perfil').val();
+    bajaPerfil(e,id);
+});
+
+$('body').on('click', '#eliminar', (e) => {
+    let id = $('#id-perfil').val();
+    borrarPerfil(e,id);
 });
 
 function desplegarInformacion(){
