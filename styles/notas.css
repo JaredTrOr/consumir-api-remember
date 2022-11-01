@@ -1,0 +1,21 @@
+#app{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    padding: 8rem 1em;
+    gap: 24px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.add-note {
+    height: 350px;
+    border: none;
+    outline: none;
+    width: 22rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 120px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+}

@@ -39,7 +39,8 @@ function iniciarSesion(){
         success: (respuesta) => {
             switch(respuesta){
                 case 'Usuario iniciado': 
-                    window.location.href = 'notas.html';
+                    informacionUsuario();
+                    redireccionar('notas.html');
                     break;
                 case 'Administrador iniciado': 
                     informacionAdministrador();
@@ -68,6 +69,20 @@ function informacionAdministrador(){
         type: 'GET',
         success: (tablas) => {
             agregarLocalStorage(tablas);
+        },
+        xhrFields: {
+            withCredentials: true
+        }
+    });
+}
+
+//USUARIO
+function informacionUsuario(){
+    $.ajax({
+        url: 'http://localhost:3000/usuarioAPI/usuario',
+        type: 'GET',
+        success: (data) => {
+            agregarLocalStorage(data);
         },
         xhrFields: {
             withCredentials: true
