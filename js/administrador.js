@@ -1,4 +1,4 @@
-import { borrarUsuario, bajaUsuario, restaurarUsuario, infoEditarUsuario, infoEditarAdministrador } 
+import { borrarUsuario, bajaUsuario, restaurarUsuario, infoEditarUsuario, infoEditarAdministrador, informacionAdministrador } 
 from './usuarios.js';
 
 /*EVENTOS CLICK-------------------------------------------------------------*/
@@ -17,14 +17,16 @@ $('body').on('click', '.editar', (e) => infoEditarUsuario(e));
 $('body').on('click', '#admin', (e) => infoEditarAdministrador(e));
 
 /*FUNCTIONES UTILIZADAS------------------------------------------------------*/
-function renderizarTablas(){
-    const tablas = JSON.parse(localStorage.getItem('tablas'));
+async function renderizarTablas(){
+    let tablas = await JSON.parse(localStorage.getItem('tablas'));
+
     let admin = tablas.administrador;
     let tablaUsuarios = tablas.tablaUsuarios;
     let tablaAdmins = tablas.tablaAdmin;
     let tablaBajas = tablas.tablaBajas;
 
     $('#admin').html(admin.nombre);
+    
     //RENDERIZANDO USUARIOS
     let columnasUsuarios = '';
     tablaUsuarios.forEach(tablaUsuario => {

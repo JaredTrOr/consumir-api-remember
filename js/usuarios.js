@@ -36,15 +36,15 @@ function iniciarSesion(){
             usuario: $('#usuario-inicio').val(),
             password: $('#password-inicio').val()
         },
-        success: (respuesta) => {
+        success: async (respuesta) => {
             switch(respuesta){
                 case 'Usuario iniciado': 
                     informacionUsuario();
                     redireccionar('notas.html');
                     break;
                 case 'Administrador iniciado': 
-                    informacionAdministrador();
-                    redireccionar('administrador.html');
+                    await informacionAdministrador();
+                    window.location.href = 'administrador.html';
                     break;
                 case 'Usuario dado de baja': 
                     mensajeAdvertencia(respuesta); 
@@ -63,11 +63,12 @@ function iniciarSesion(){
 }
 
 //ADMINISTRADOR
-function informacionAdministrador(){
-    $.ajax({
+async function informacionAdministrador(){
+    await $.ajax({
         url: 'http://localhost:3000/usuarioAPI/administrador',
         type: 'GET',
         success: (tablas) => {
+            console.log(tablas);
             agregarLocalStorage(tablas);
         },
         xhrFields: {
@@ -214,9 +215,9 @@ function editarUsuario(){
 }
 
 //EDITAR PERFIL DE ADMINISTRADOR
-function editarPerfil(){
-    $.ajax({
-        url: 'http://localhost:3000/usuarioAPI/editar-usuario-administrador',
+async function editarPerfil(){
+    await $.ajax({
+        url: 'http://localhost:3000/usuarioAPI/editar-perfil-administrador',
         type: 'POST',
         data: {
             id: $('#id-perfil').val(),
@@ -225,9 +226,12 @@ function editarPerfil(){
             email: $('#email-perfil').val(),
             password: $('#password-perfil').val()
         },
-        success: () => {
-            localStorage.removeItem('tablas');
-            informacionAdministrador();
+        success: async () => {
+            await informacionAdministrador();
+            window.location.href = 'administrador.html';
+        },
+        xhrFields: {
+            withCredentials: true
         }
     });
 }
@@ -299,7 +303,8 @@ export {
     infoEditarAdministrador,
     editarPerfil,
     bajaPerfil,
-    borrarPerfil
+    borrarPerfil,
+    informacionAdministrador
 }
 
 

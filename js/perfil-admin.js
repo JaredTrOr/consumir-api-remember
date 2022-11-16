@@ -6,9 +6,9 @@ $('body').on('click', '#regresar', (e) => {
     redireccionar('../administrador.html');
 });
 
-$('body').on('click', '#editar', (e) => {
+$('body').on('click', '#editar', () => {
+    editarPerfil();
     localStorage.removeItem('administrador');
-    editarPerfil(e);
 });
 
 $('body').on('click', '#baja', (e) => {
